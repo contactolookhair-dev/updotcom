@@ -142,66 +142,76 @@ export default function FeaturesShowcase() {
         </div>
 
         {/* 4 & 5. FUNNEL & ADS (Flow) */}
-        <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
+        <div className="bg-gray-50 rounded-3xl p-5 md:p-12 border border-gray-100 overflow-hidden">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
              <div>
                 <div className="mb-10">
-                  <h3 className="text-3xl font-bold text-dark mb-4">Publicidad conectada a resultados reales.</h3>
-                  <p className="text-gray-500 text-lg mb-6">Ve cada paso del cliente, aunque no sepas de marketing. Tu publicidad se convierte en ventas reales.</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-dark mb-4">Publicidad conectada a resultados reales.</h3>
+                  <p className="text-gray-500 text-base md:text-lg mb-6">Ve cada paso del cliente, aunque no sepas de marketing. Tu publicidad se convierte en ventas reales.</p>
                 </div>
 
                 {/* Ads Flow Animation */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
-                      <Facebook size={20} />
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                      <Facebook size={18} className="md:w-5 md:h-5" />
                     </div>
+                    
+                    {/* Responsive Bar */}
                     <motion.div 
-                       initial={{ width: 0 }}
-                       whileInView={{ width: '100px' }}
-                       className="h-1 bg-gray-200 rounded-full overflow-hidden"
+                       initial={{ scaleX: 0 }}
+                       whileInView={{ scaleX: 1 }}
+                       transition={{ duration: 0.8, ease: "easeOut" }}
+                       className="h-1 bg-gray-200 rounded-full overflow-hidden w-12 md:w-24 origin-left shrink-0"
                     >
                       <motion.div className="h-full bg-electric w-full" initial={{ x: '-100%' }} whileInView={{ x: '0%' }} transition={{ duration: 1, repeat: Infinity }} />
                     </motion.div>
-                    <div className="text-sm font-bold text-dark">Vieron tu anuncio</div>
+                    
+                    <div className="text-xs md:text-sm font-bold text-dark shrink">Vieron tu anuncio</div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                      <MessageCircle size={20} />
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                      <MessageCircle size={18} className="md:w-5 md:h-5" />
                     </div>
+                    
                     <motion.div 
-                       initial={{ width: 0 }}
-                       whileInView={{ width: '100px' }}
-                       className="h-1 bg-gray-200 rounded-full overflow-hidden"
+                       initial={{ scaleX: 0 }}
+                       whileInView={{ scaleX: 1 }}
+                       transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                       className="h-1 bg-gray-200 rounded-full overflow-hidden w-12 md:w-24 origin-left shrink-0"
                     >
                       <motion.div className="h-full bg-green-500 w-full" initial={{ x: '-100%' }} whileInView={{ x: '0%' }} transition={{ duration: 1, repeat: Infinity, delay: 0.5 }} />
                     </motion.div>
-                    <div className="text-sm font-bold text-dark">Preguntaron</div>
+                    
+                    <div className="text-xs md:text-sm font-bold text-dark shrink">Preguntaron</div>
                   </div>
 
-                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-electric/10 rounded-full flex items-center justify-center text-electric">
-                      <TrendingUp size={20} />
+                   <div className="flex items-center gap-3 md:gap-4">
+                    <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 bg-electric/10 rounded-full flex items-center justify-center text-electric">
+                      <TrendingUp size={18} className="md:w-5 md:h-5" />
                     </div>
+                    
                     <motion.div 
-                       initial={{ width: 0 }}
-                       whileInView={{ width: '100px' }}
-                       className="h-1 bg-gray-200 rounded-full overflow-hidden"
+                       initial={{ scaleX: 0 }}
+                       whileInView={{ scaleX: 1 }}
+                       transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                       className="h-1 bg-gray-200 rounded-full overflow-hidden w-12 md:w-24 origin-left shrink-0"
                     >
                        <motion.div className="h-full bg-electric w-full" initial={{ x: '-100%' }} whileInView={{ x: '0%' }} transition={{ duration: 1, repeat: Infinity, delay: 1 }} />
                     </motion.div>
-                    <div className="text-sm font-bold text-dark">Compra Realizada</div>
+                    
+                    <div className="text-xs md:text-sm font-bold text-dark shrink">Compra Realizada</div>
                   </div>
                 </div>
              </div>
 
              {/* CRM Board Visual */}
-             <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-100">
-                <div className="flex gap-2 overflow-x-auto pb-2">
+             <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-100 mt-6 lg:mt-0 w-full overflow-hidden">
+                <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
                    {['Nuevos', 'Interesados', 'Cierre'].map((col, idx) => (
-                     <div key={col} className="w-1/3 min-w-[120px] bg-gray-50 p-3 rounded-lg">
-                        <div className="text-xs font-bold text-gray-400 uppercase mb-3 flex items-center gap-1">
+                     <div key={col} className="w-1/3 min-w-[100px] md:min-w-[120px] bg-gray-50 p-2 md:p-3 rounded-lg shrink-0">
+                        <div className="text-[10px] md:text-xs font-bold text-gray-400 uppercase mb-3 flex items-center gap-1">
                           <span className={`w-2 h-2 rounded-full ${idx === 2 ? 'bg-green-500' : 'bg-electric'}`}></span> {col}
                         </div>
                         <div className="space-y-2">
@@ -209,7 +219,7 @@ export default function FeaturesShowcase() {
                               initial={{ opacity: 0, y: 10 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.5 + (idx * 0.2) }}
-                              className="bg-white p-2 rounded shadow-sm text-xs border border-gray-100"
+                              className="bg-white p-2 rounded shadow-sm text-[10px] md:text-xs border border-gray-100"
                            >
                              Cliente #{idx + 1}
                            </motion.div>
@@ -218,7 +228,7 @@ export default function FeaturesShowcase() {
                               initial={{ opacity: 0, y: 10 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ delay: 1 }}
-                              className="bg-white p-2 rounded shadow-sm text-xs border border-gray-100"
+                              className="bg-white p-2 rounded shadow-sm text-[10px] md:text-xs border border-gray-100"
                            >
                              Cliente #4
                            </motion.div>
